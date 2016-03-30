@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <groupId>com.test</groupId>
   <version>1.0-SNAPSHOT</version>
   <artifactId>streamcodec-bug</artifactId>
   <packaging>jar</packaging>
 
   <!-- change these to the appropriate values -->
-  <name>My Apex Application</name>
-  <description>My Apex Application Description</description>
+  <name>Stream Codec Bug</name>
+  <description>Stream Codec Bug</description>
 
   <properties>
     <!-- change this if you desire to use a different version of Apex Core -->
@@ -75,7 +75,7 @@
                </descriptors>
                <archiverConfig>
                  <defaultDirectoryMode>0755</defaultDirectoryMode>
-               </archiverConfig>                  
+               </archiverConfig>
                <archive>
                  <manifestEntries>
                    <Class-Path>${apex.apppackage.classpath}</Class-Path>
@@ -238,11 +238,11 @@
       <groupId>org.apache.apex</groupId>
       <artifactId>malhar-library</artifactId>
       <version>3.2.0-incubating</version>
-      <!-- 
+      <!--
            If you know that your application does not need transitive dependencies pulled in by malhar-library,
            uncomment the following to reduce the size of your app package.
       -->
-      <!--    
+      <!--
       <exclusions>
         <exclusion>
           <groupId>*</groupId>
