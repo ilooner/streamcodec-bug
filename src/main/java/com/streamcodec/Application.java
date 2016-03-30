@@ -29,6 +29,6 @@ public class Application implements StreamingApplication
     ConsoleOutputOperator cons = dag.addOperator("console", new ConsoleOutputOperator());
     dag.getMeta(cons).getMeta(cons.input).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
 
-    dag.addStream("randomData", randomGenerator.out, cons.input).setLocality(Locality.CONTAINER_LOCAL);
+    dag.addStream("randomData", randomGenerator.out, cons.input);
   }
 }
