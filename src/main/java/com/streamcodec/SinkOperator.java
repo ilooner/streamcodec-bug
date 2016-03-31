@@ -46,17 +46,17 @@ public class SinkOperator implements Operator
   };
 
   @Override
+  public void setup(OperatorContext cntxt)
+  {
+  }
+
+  @Override
   public void beginWindow(long l)
   {
   }
 
   @Override
   public void endWindow()
-  {
-  }
-
-  @Override
-  public void setup(OperatorContext cntxt)
   {
   }
 

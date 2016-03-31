@@ -25,6 +25,14 @@
     <value>com.datatorrent.common.partitioner.StatelessPartitioner:8</value>
   </property>
   <property>
+    <name>dt.operator.randomGenerator1.attr.PARTITIONER</name>
+    <value>com.datatorrent.common.partitioner.StatelessPartitioner:8</value>
+  </property>
+  <property>
+    <name>dt.operator.randomGenerator2.attr.PARTITIONER</name>
+    <value>com.datatorrent.common.partitioner.StatelessPartitioner:8</value>
+  </property>
+  <property>
     <name>dt.operator.passthrough.attr.PARTITIONER</name>
     <value>com.datatorrent.common.partitioner.StatelessPartitioner:8</value>
   </property>
