@@ -15,12 +15,13 @@ public class SinkOperator implements Operator
     public void process(Object t)
     {
     }
-
+    /*
     @Override
     public StreamCodec<Object> getStreamCodec()
     {
       return new KryoSerializableStreamCodec();
     }
+    */
   };
 
   @Override
