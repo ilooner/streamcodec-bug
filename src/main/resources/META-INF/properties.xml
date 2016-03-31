@@ -20,6 +20,7 @@
     <name>dt.application.MyFirstApplication.operator.console.prop.stringFormat</name>
     <value>hello world: %s</value>
   </property>
+  <!--
   <property>
     <name>dt.operator.randomGenerator.attr.PARTITIONER</name>
     <value>com.datatorrent.common.partitioner.StatelessPartitioner:8</value>
@@ -30,6 +31,11 @@
   </property>
   <property>
     <name>dt.operator.randomGenerator2.attr.PARTITIONER</name>
+    <value>com.datatorrent.common.partitioner.StatelessPartitioner:8</value>
+  </property>
+  -->
+  <property>
+    <name>dt.operator.sink.attr.PARTITIONER</name>
     <value>com.datatorrent.common.partitioner.StatelessPartitioner:8</value>
   </property>
   <property>
