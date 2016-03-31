@@ -16,23 +16,23 @@ import com.datatorrent.lib.io.ConsoleOutputOperator;
 @ApplicationAnnotation(name="MyFirstApplication")
 public class Application implements StreamingApplication
 {
-
   @Override
   public void populateDAG(DAG dag, Configuration conf)
   {
-    // Sample DAG with 2 operators
-    // Replace this code with the DAG you want to build
-
     RandomNumberGenerator randomGenerator = dag.addOperator("randomGenerator", RandomNumberGenerator.class);
-    PassThroughOperator passThrough = dag.addOperator("passthrough", PassThroughOperator.class);
-
+    randomGenerator.setNumTuples(500);
+    RandomNumberGenerator randomGenerator1 = dag.addOperator("randomGenerator1", RandomNumberGenerator.class);
+    randomGenerator.setNumTuples(500);
+    RandomNumberGenerator randomGenerator2 = dag.addOperator("randomGenerator2", RandomNumberGenerator.class);
     randomGenerator.setNumTuples(500);
 
-    SinkOperator cons = dag.addOperator("console", new SinkOperator());
+    SinkOperator sink = dag.addOperator("sink", SinkOperator.class);
 
-    //dag.getMeta(passThrough).getMeta(passThrough.input).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
+    dag.getMeta(sink).getMeta(sink.input1).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
+    dag.getMeta(sink).getMeta(sink.input2).getAttributes().put(PortContext.STREAM_CODEC, new DoubleStreamCodec());
 
-    dag.addStream("passthrough", randomGenerator.out, passThrough.input);
-    dag.addStream("randomData", passThrough.output, cons.input);
+    dag.addStream("passthrough", randomGenerator.out, sink.input);
+    dag.addStream("passthrough", randomGenerator1.out, sink.input1);
+    dag.addStream("passthrough", randomGenerator2.out, sink.input2);
   }
 }

@@ -3,25 +3,31 @@ package com.streamcodec;
 import com.datatorrent.api.Context.OperatorContext;
 import com.datatorrent.api.DefaultInputPort;
 import com.datatorrent.api.Operator;
-import com.datatorrent.api.StreamCodec;
-import com.datatorrent.lib.codec.KryoSerializableStreamCodec;
 
 public class SinkOperator implements Operator
 {
   public final transient DefaultInputPort<Object> input = new DefaultInputPort<Object>()
   {
     @Override
-    @SuppressWarnings("UseOfSystemOutOrSystemErr")
-    public void process(Object t)
+    public void process(Object tuple)
     {
     }
-    /*
+  };
+
+  public final transient DefaultInputPort<Object> input1 = new DefaultInputPort<Object>()
+  {
     @Override
-    public StreamCodec<Object> getStreamCodec()
+    public void process(Object tuple)
     {
-      return new KryoSerializableStreamCodec();
     }
-    */
+  };
+
+  public final transient DefaultInputPort<Object> input2 = new DefaultInputPort<Object>()
+  {
+    @Override
+    public void process(Object tuple)
+    {
+    }
   };
 
   @Override

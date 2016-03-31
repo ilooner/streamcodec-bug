@@ -6,6 +6,7 @@ package com.streamcodec;
 import com.datatorrent.api.DefaultOutputPort;
 import com.datatorrent.api.InputOperator;
 import com.datatorrent.common.util.BaseOperator;
+import com.datatorrent.lib.appdata.schemas.FieldsDescriptor;
 
 /**
  * This is a simple operator that emits random number.
@@ -15,7 +16,7 @@ public class RandomNumberGenerator extends BaseOperator implements InputOperator
   private int numTuples = 100;
   private transient int count = 0;
 
-  public final transient DefaultOutputPort<ComplexObject> out = new DefaultOutputPort<ComplexObject>();
+  public final transient DefaultOutputPort<Double> out = new DefaultOutputPort<Double>();
 
   @Override
   public void beginWindow(long windowId)
@@ -27,9 +28,7 @@ public class RandomNumberGenerator extends BaseOperator implements InputOperator
   public void emitTuples()
   {
     if (count++ < numTuples) {
-      ComplexObject complexObject = new ComplexObject();
-      complexObject.val = Math.random();
-      out.emit(complexObject);
+      out.emit(Math.random());
     }
   }
 
@@ -45,14 +44,5 @@ public class RandomNumberGenerator extends BaseOperator implements InputOperator
   public void setNumTuples(int numTuples)
   {
     this.numTuples = numTuples;
-  }
-
-  public static class ComplexObject
-  {
-    public Double val;
-
-    public ComplexObject()
-    {
-    }
   }
 }
