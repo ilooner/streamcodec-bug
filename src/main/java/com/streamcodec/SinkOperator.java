@@ -17,12 +17,6 @@ public class SinkOperator implements Operator
     public void process(Complex tuple)
     {
     }
-
-    @Override
-    public StreamCodec<Complex> getStreamCodec()
-    {
-      return new SimpleDefaultStatefulStreamCodec();
-    }
   };
 
   public final transient DefaultInputPort<Complex> input1 = new DefaultInputPort<Complex>()
@@ -31,12 +25,6 @@ public class SinkOperator implements Operator
     public void process(Complex tuple)
     {
     }
-
-    @Override
-    public StreamCodec<Complex> getStreamCodec()
-    {
-      return new DoubleStreamCodec();
-    }
   };
 
   public final transient DefaultInputPort<Complex> input2 = new DefaultInputPort<Complex>()
@@ -44,12 +32,6 @@ public class SinkOperator implements Operator
     @Override
     public void process(Complex tuple)
     {
-    }
-
-    @Override
-    public StreamCodec<Complex> getStreamCodec()
-    {
-      return new KryoSerializableStreamCodec<>();
     }
   };
 
@@ -75,6 +57,8 @@ public class SinkOperator implements Operator
 
   public static class SimpleDefaultStatefulStreamCodec extends DefaultStatefulStreamCodec<Complex> implements Serializable
   {
+    private static final long serialVersionUID = 201603310347L;
+
     public SimpleDefaultStatefulStreamCodec()
     {
     }
