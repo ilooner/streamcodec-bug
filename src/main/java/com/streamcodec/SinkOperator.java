@@ -5,6 +5,7 @@ import com.datatorrent.api.DefaultInputPort;
 import com.datatorrent.api.Operator;
 import com.datatorrent.api.StreamCodec;
 import com.datatorrent.lib.codec.KryoSerializableStreamCodec;
+import com.datatorrent.stram.codec.DefaultStatefulStreamCodec;
 import com.streamcodec.RandomNumberGenerator.Complex;
 
 public class SinkOperator implements Operator
@@ -14,6 +15,12 @@ public class SinkOperator implements Operator
     @Override
     public void process(Complex tuple)
     {
+    }
+
+    @Override
+    public StreamCodec<Complex> getStreamCodec()
+    {
+      return new DefaultStatefulStreamCodec();
     }
   };
 
