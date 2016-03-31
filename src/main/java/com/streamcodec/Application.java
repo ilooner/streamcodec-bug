@@ -38,8 +38,8 @@ public class Application implements StreamingApplication
     dag.addStream("rand1", randomGenerator1.out, sink.input1);
     dag.addStream("rand2", randomGenerator2.out, sink.input2);
 
-    dag.addStream("rand", randomGenerator.out2, sink2.input);
-    dag.addStream("rand1", randomGenerator1.out2, sink2.input1);
-    dag.addStream("rand2", randomGenerator2.out2, sink2.input2);
+    dag.addStream("rand0", randomGenerator.out2, sink2.input);
+    dag.addStream("rand01", randomGenerator1.out2, sink2.input1);
+    dag.addStream("rand02", randomGenerator2.out2, sink2.input2);
   }
 }
