@@ -22,6 +22,12 @@ public class PassThroughOperator extends BaseOperator
     {
       output.emit(t);
     }
+
+    @Override
+    public StreamCodec<Object> getStreamCodec()
+    {
+      return new KryoSerializableStreamCodec();
+    }
   };
 
   public final transient DefaultOutputPort<Object> output = new DefaultOutputPort<Object>()
