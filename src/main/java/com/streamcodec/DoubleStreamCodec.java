@@ -9,10 +9,11 @@ package com.streamcodec;
 import com.datatorrent.api.StreamCodec;
 import com.datatorrent.lib.appdata.gpo.GPOUtils;
 import com.datatorrent.netlet.util.Slice;
+import com.streamcodec.RandomNumberGenerator.Complex;
 import java.io.Serializable;
 import org.apache.commons.lang3.mutable.MutableInt;
 
-public class DoubleStreamCodec implements StreamCodec<Double>, Serializable
+public class DoubleStreamCodec implements StreamCodec<Complex>, Serializable
 {
   private static final long serialVersionUID = 201603310124L;
 
@@ -21,21 +22,21 @@ public class DoubleStreamCodec implements StreamCodec<Double>, Serializable
   }
 
   @Override
-  public Double fromByteArray(Slice fragment)
+  public Complex fromByteArray(Slice fragment)
   {
-    return GPOUtils.deserializeDouble(fragment.buffer, new MutableInt(0));
+    return new Complex(GPOUtils.deserializeDouble(fragment.buffer, new MutableInt(0)));
   }
 
   @Override
-  public Slice toByteArray(Double o)
+  public Slice toByteArray(Complex o)
   {
-    byte[] array = GPOUtils.serializeDouble(o);
+    byte[] array = GPOUtils.serializeDouble(o.val);
 
     return new Slice(array, 0, array.length);
   }
 
   @Override
-  public int getPartition(Double o)
+  public int getPartition(Complex o)
   {
     return o.hashCode();
   }

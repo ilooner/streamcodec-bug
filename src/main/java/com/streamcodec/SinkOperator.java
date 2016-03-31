@@ -5,40 +5,41 @@ import com.datatorrent.api.DefaultInputPort;
 import com.datatorrent.api.Operator;
 import com.datatorrent.api.StreamCodec;
 import com.datatorrent.lib.codec.KryoSerializableStreamCodec;
+import com.streamcodec.RandomNumberGenerator.Complex;
 
 public class SinkOperator implements Operator
 {
-  public final transient DefaultInputPort<Double> input = new DefaultInputPort<Double>()
+  public final transient DefaultInputPort<Complex> input = new DefaultInputPort<Complex>()
   {
     @Override
-    public void process(Double tuple)
+    public void process(Complex tuple)
     {
     }
   };
 
-  public final transient DefaultInputPort<Double> input1 = new DefaultInputPort<Double>()
+  public final transient DefaultInputPort<Complex> input1 = new DefaultInputPort<Complex>()
   {
     @Override
-    public void process(Double tuple)
+    public void process(Complex tuple)
     {
     }
 
     @Override
-    public StreamCodec<Double> getStreamCodec()
+    public StreamCodec<Complex> getStreamCodec()
     {
       return new DoubleStreamCodec();
     }
   };
 
-  public final transient DefaultInputPort<Double> input2 = new DefaultInputPort<Double>()
+  public final transient DefaultInputPort<Complex> input2 = new DefaultInputPort<Complex>()
   {
     @Override
-    public void process(Double tuple)
+    public void process(Complex tuple)
     {
     }
 
     @Override
-    public StreamCodec<Double> getStreamCodec()
+    public StreamCodec<Complex> getStreamCodec()
     {
       return new KryoSerializableStreamCodec<>();
     }

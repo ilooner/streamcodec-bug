@@ -16,7 +16,7 @@ public class RandomNumberGenerator extends BaseOperator implements InputOperator
   private int numTuples = 100;
   private transient int count = 0;
 
-  public final transient DefaultOutputPort<Double> out = new DefaultOutputPort<Double>();
+  public final transient DefaultOutputPort<Complex> out = new DefaultOutputPort<Complex>();
 
   @Override
   public void beginWindow(long windowId)
@@ -28,7 +28,7 @@ public class RandomNumberGenerator extends BaseOperator implements InputOperator
   public void emitTuples()
   {
     if (count++ < numTuples) {
-      out.emit(Math.random());
+      out.emit(new Complex(Math.random()));
     }
   }
 
@@ -44,5 +44,15 @@ public class RandomNumberGenerator extends BaseOperator implements InputOperator
   public void setNumTuples(int numTuples)
   {
     this.numTuples = numTuples;
+  }
+
+  public static class Complex
+  {
+    public double val;
+
+    public Complex(double val)
+    {
+      this.val = val;
+    }
   }
 }
