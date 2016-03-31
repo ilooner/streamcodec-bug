@@ -30,7 +30,7 @@ public class Application implements StreamingApplication
 
     SinkOperator cons = dag.addOperator("console", new SinkOperator());
 
-    dag.getMeta(cons).getMeta(passThrough.input).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
+    dag.getMeta(passThrough).getMeta(passThrough.input).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
 
     dag.addStream("passthrough", randomGenerator.out, passThrough.input);
     dag.addStream("randomData", passThrough.output, cons.input);
