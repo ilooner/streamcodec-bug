@@ -50,6 +50,10 @@ public class RandomNumberGenerator extends BaseOperator implements InputOperator
   {
     public double val;
 
+    public Complex()
+    {
+    }
+
     public Complex(double val)
     {
       this.val = val;
