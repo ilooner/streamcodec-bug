@@ -31,8 +31,8 @@ public class Application implements StreamingApplication
     dag.getMeta(sink).getMeta(sink.input1).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
     dag.getMeta(sink).getMeta(sink.input2).getAttributes().put(PortContext.STREAM_CODEC, new DoubleStreamCodec());
 
-    dag.addStream("passthrough", randomGenerator.out, sink.input);
-    dag.addStream("passthrough", randomGenerator1.out, sink.input1);
-    dag.addStream("passthrough", randomGenerator2.out, sink.input2);
+    dag.addStream("rand", randomGenerator.out, sink.input);
+    dag.addStream("rand1", randomGenerator1.out, sink.input1);
+    dag.addStream("rand2", randomGenerator2.out, sink.input2);
   }
 }
