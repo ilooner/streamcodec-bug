@@ -7,6 +7,7 @@ import com.datatorrent.api.StreamCodec;
 import com.datatorrent.lib.codec.KryoSerializableStreamCodec;
 import com.datatorrent.stram.codec.DefaultStatefulStreamCodec;
 import com.streamcodec.RandomNumberGenerator.Complex;
+import java.io.Serializable;
 
 public class SinkOperator implements Operator
 {
@@ -72,7 +73,7 @@ public class SinkOperator implements Operator
   {
   }
 
-  public static class SimpleDefaultStatefulStreamCodec extends DefaultStatefulStreamCodec<Complex>
+  public static class SimpleDefaultStatefulStreamCodec extends DefaultStatefulStreamCodec<Complex> implements Serializable
   {
     public SimpleDefaultStatefulStreamCodec()
     {
