@@ -20,7 +20,7 @@ public class SinkOperator implements Operator
     @Override
     public StreamCodec<Complex> getStreamCodec()
     {
-      return new DefaultStatefulStreamCodec();
+      return new SimpleDefaultStatefulStreamCodec();
     }
   };
 
@@ -70,5 +70,12 @@ public class SinkOperator implements Operator
   @Override
   public void teardown()
   {
+  }
+
+  public static class SimpleDefaultStatefulStreamCodec extends DefaultStatefulStreamCodec<Complex>
+  {
+    public SimpleDefaultStatefulStreamCodec()
+    {
+    }
   }
 }
