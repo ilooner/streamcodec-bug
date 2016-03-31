@@ -28,8 +28,8 @@ public class Application implements StreamingApplication
 
     SinkOperator sink = dag.addOperator("sink", SinkOperator.class);
 
-    dag.getMeta(sink).getMeta(sink.input1).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
-    dag.getMeta(sink).getMeta(sink.input2).getAttributes().put(PortContext.STREAM_CODEC, new DoubleStreamCodec());
+    //dag.getMeta(sink).getMeta(sink.input1).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
+    //dag.getMeta(sink).getMeta(sink.input2).getAttributes().put(PortContext.STREAM_CODEC, new DoubleStreamCodec());
 
     dag.addStream("rand", randomGenerator.out, sink.input);
     dag.addStream("rand1", randomGenerator1.out, sink.input1);
