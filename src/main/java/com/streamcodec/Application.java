@@ -24,11 +24,14 @@ public class Application implements StreamingApplication
     // Replace this code with the DAG you want to build
 
     RandomNumberGenerator randomGenerator = dag.addOperator("randomGenerator", RandomNumberGenerator.class);
+    PassThroughOperator passThrough = dag.addOperator("passthrough", PassThroughOperator.class);
+
     randomGenerator.setNumTuples(500);
 
-    ConsoleOutputOperator cons = dag.addOperator("console", new ConsoleOutputOperator());
+    SinkOperator cons = dag.addOperator("console", new SinkOperator());
     dag.getMeta(cons).getMeta(cons.input).getAttributes().put(PortContext.STREAM_CODEC, new KryoSerializableStreamCodec());
 
-    dag.addStream("randomData", randomGenerator.out, cons.input);
+    dag.addStream("passthrough", randomGenerator.out, passThrough.input);
+    dag.addStream("randomData", passThrough.output, cons.input);
   }
 }
