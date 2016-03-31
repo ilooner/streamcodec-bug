@@ -9,10 +9,13 @@ package com.streamcodec;
 import com.datatorrent.api.StreamCodec;
 import com.datatorrent.lib.appdata.gpo.GPOUtils;
 import com.datatorrent.netlet.util.Slice;
+import java.io.Serializable;
 import org.apache.commons.lang3.mutable.MutableInt;
 
-public class DoubleStreamCodec implements StreamCodec<Double>
+public class DoubleStreamCodec implements StreamCodec<Double>, Serializable
 {
+  private static final long serialVersionUID = 201603310124L;
+
   public DoubleStreamCodec()
   {
   }
