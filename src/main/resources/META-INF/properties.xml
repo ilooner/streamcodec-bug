@@ -1,17 +1,8 @@
 <?xml version="1.0"?>
 <configuration>
-  <!--
   <property>
-    <name>dt.application.{appName}.operator.{opName}.prop.{propName}</name>
-    <value>some-default-value (if value is not specified, it is required from the user or custom config when launching)</value>
+    <name><
   </property>
-  -->
-  <!-- memory assigned to app master
-  <property>
-    <name>dt.attr.MASTER_MEMORY_MB</name>
-    <value>1024</value>
-  </property>
-  -->
   <property>
     <name>dt.application.MyFirstApplication.operator.randomGenerator.prop.numTuples</name>
     <value>1000</value>
@@ -41,6 +32,30 @@
   <property>
     <name>dt.operator.passthrough.attr.PARTITIONER</name>
     <value>com.datatorrent.common.partitioner.StatelessPartitioner:8</value>
+  </property>
+  <property>
+    <name>dt.application.*.attr.CHECKPOINT_WINDOW_COUNT</name>
+    <value>1</value>
+  </property>
+  <property>
+    <name>dt.operator.randomGenerator.attr.CHECKPOINT_WINDOW_COUNT</name>
+    <value>5</value>
+  </property>
+  <property>
+    <name>dt.operator.randomGenerator1.attr.CHECKPOINT_WINDOW_COUNT</name>
+    <value>5</value>
+  </property>
+  <property>
+    <name>dt.operator.randomGenerator2.attr.CHECKPOINT_WINDOW_COUNT</name>
+    <value>5</value>
+  </property>
+  <property>
+    <name>dt.operator.sink.attr.CHECKPOINT_WINDOW_COUNT</name>
+    <value>1</value>
+  </property>
+  <property>
+    <name>dt.operator.sink2.attr.CHECKPOINT_WINDOW_COUNT</name>
+    <value>1</value>
   </property>
 </configuration>
 
