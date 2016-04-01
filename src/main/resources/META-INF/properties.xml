@@ -32,27 +32,27 @@
   </property>
   <property>
     <name>dt.application.*.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>30</value>
+    <value>1</value>
   </property>
   <property>
     <name>dt.operator.randomGenerator.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>30</value>
+    <value>1</value>
   </property>
   <property>
     <name>dt.operator.randomGenerator1.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>30</value>
+    <value>1</value>
   </property>
   <property>
     <name>dt.operator.randomGenerator2.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>30</value>
+    <value>1</value>
   </property>
   <property>
     <name>dt.operator.sink.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>60</value>
+    <value>1</value>
   </property>
   <property>
     <name>dt.operator.sink2.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>60</value>
+    <value>1</value>
   </property>
 </configuration>
 
