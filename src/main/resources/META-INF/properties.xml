@@ -36,23 +36,23 @@
   </property>
   <property>
     <name>dt.operator.randomGenerator.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>1</value>
+    <value>2</value>
   </property>
   <property>
     <name>dt.operator.randomGenerator1.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>1</value>
+    <value>2</value>
   </property>
   <property>
     <name>dt.operator.randomGenerator2.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>1</value>
+    <value>2</value>
   </property>
   <property>
     <name>dt.operator.sink.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>2</value>
+    <value>1</value>
   </property>
   <property>
     <name>dt.operator.sink2.attr.CHECKPOINT_WINDOW_COUNT</name>
-    <value>2</value>
+    <value>1</value>
   </property>
 </configuration>
 
